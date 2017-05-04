@@ -1,0 +1,18 @@
+#!/bin/bash -xe
+
+PROC=${@-server}
+PORT=${PORT-4000}
+CONTAINER_NAME=${CONTAINER_NAME-chat}
+
+echo "Starting $PROC in a Docker container"
+
+docker build -t $CONTAINER_NAME .
+
+docker run \
+  -p $PORT:$PORT \
+  --env PORT=$PORT \
+  --env PROC=$PROC \
+  -it \
+  --rm \
+  --name $CONTAINER_NAME-$PROC \
+  $CONTAINER_NAME
