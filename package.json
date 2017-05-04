@@ -4,6 +4,7 @@
   "description": "In this session, we'll introduce Node.JS and use it to build a chat server, client library, client, and bot.",
   "main": "server.js",
   "dependencies": {
+    "blessed": "^0.1.81",
     "colors": "^1.1.2"
   },
   "devDependencies": {},
